@@ -8,25 +8,20 @@ class Freshdesk
   class AlreadyExistedError < StandardError; end
   class ConnectionError < StandardError; end
 
-  attr_accessor :base_url
+  attr_accessor :base_url, :api_key
 
-  def api_key(api_key)
-    @api_key
-  end
-
-  def api_key=(api_key)
-    @api_key = api_key
-  end
-
-  def initialize(base_url, username='X', password='X')
+  def initialize(base_url, api_key='X', username='X', password='X')
 
     @base_url = base_url
-
-    ap @api_key
-    exit
+    @api_key = api_key
 
     RestClient.add_before_execution_proc do | req, params |
-      req.basic_auth username, password
+
+      if @api_key
+        req.basic_auth api_key, password
+      else
+        req.basic_auth username, password
+      end
     end
   end
 

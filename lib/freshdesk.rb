@@ -10,9 +10,16 @@ class Freshdesk
 
   attr_accessor :base_url
 
-  def initialize(base_url, username, password='X')
+  def api_key(api_key)
+    @api_key = api_key
+  end
+
+  def initialize(base_url, username='X', password='X')
 
     @base_url = base_url
+
+    ap @api_key
+    exit
 
     RestClient.add_before_execution_proc do | req, params |
       req.basic_auth username, password

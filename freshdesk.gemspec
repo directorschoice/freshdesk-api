@@ -9,7 +9,7 @@ Gem::Specification.new do |s|
   s.authors     = ["David Liman", "Tim Macdonald"]
   s.email       = 'tsmacdonald@gmail.com'
   s.files       = ["lib/freshdesk.rb"]
-  s.homepage    = 'https://github.com/dvliman/freshdesk-api'
+  s.homepage    = 'https://github.com/directorschoice/freshdesk-api'
   s.add_runtime_dependency 'rest-client'
   s.add_runtime_dependency 'nokogiri'
 end

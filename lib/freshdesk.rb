@@ -131,6 +131,7 @@ class Freshdesk
             }
           args.except! :attachment
           end
+
           args.each do |key, value|
             xml.send(key, value)
           end

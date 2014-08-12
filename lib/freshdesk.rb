@@ -11,6 +11,10 @@ class Freshdesk
   attr_accessor :base_url
 
   def api_key(api_key)
+    @api_key
+  end
+
+  def api_key=(api_key)
     @api_key = api_key
   end
 
